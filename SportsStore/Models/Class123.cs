@@ -7,6 +7,6 @@ namespace SportsStore.Models
 {
     public class Class123
     {
-        string avcbv;
+        string avcbv123;
     }
 }
