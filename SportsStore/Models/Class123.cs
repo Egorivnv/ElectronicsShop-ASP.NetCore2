@@ -7,5 +7,6 @@ namespace SportsStore.Models
 {
     public class Class123
     {
+        string a;
     }
 }
