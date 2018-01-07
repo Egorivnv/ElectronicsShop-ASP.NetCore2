@@ -96,6 +96,8 @@ namespace SportsStore
                 });
 
             SeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
