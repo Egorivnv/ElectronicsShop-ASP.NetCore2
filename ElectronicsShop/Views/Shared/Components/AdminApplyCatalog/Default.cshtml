@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Category>
+
+<div class="form-inline ml-3">
+    <h5><label for="inputCategory">Category:</label></h5>
+</div>
+<div class="form-inline">
+    <select id="inputCategory" name="Category" class="form-control ml-3">
+        <option selected value="all">All</option>
+        @foreach (var category in Model)
+        {
+            <option value="@category.Name">@category.Name</option>
+        }
+    </select>
+</div>
+
+<div class="form-inline ml-5">
+    <h5><label for="inputBrand">Brand:</label></h5>
+</div>
+<div class="form-inline">
+    <select name="Brand" id="inputBrand" class="form-control ml-3">
+        <option selected value="0">All</option>
+    </select>
+</div>
+
+
+
+

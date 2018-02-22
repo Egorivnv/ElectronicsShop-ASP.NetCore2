@@ -1,0 +1,13 @@
+﻿@model String;
+
+<ul class="nav float-right">
+    <li class="nav-item ">
+        <button class="btn btn-link text-white" data-toggle="modal" data-target="#signInModal">@Model</button>
+    </li>
+    <li class="nav-item mt-1">
+        <span class="text-white"> | </span>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-link text-white float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
+    </li>
+</ul>

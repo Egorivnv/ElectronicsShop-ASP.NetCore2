@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Colunm Cart";
+    Layout = "_AdminLayout";
+}
+
+
+<div id="chartContainer" style="height: 350px; width: 100%;"></div>
+
+<div class="text-center mt-5">
+    <h3>Total sales: @ViewBag.TotalSales.ToString("c")</h3>
+</div>
+
+@section addscripts {
+    window.onload = function () {
+
+    var options = {
+    exportEnabled: true,
+    animationEnabled: true,
+
+    title: {
+    text: "@ViewBag.GrafTitle"
+    },
+
+    data: [{
+    type: "pyramid",
+    indexLabelFontSize: 18,
+    showInLegend: true,
+    legendText: "{indexLabel}",
+    toolTipContent: "<b>{indexLabel}:</b> {y}$",
+    dataPoints: @Html.Raw(ViewBag.DataRow)
+
+    }]
+    };
+    $("#chartContainer").CanvasJSChart(options);
+
+    }
+}
+
+
+

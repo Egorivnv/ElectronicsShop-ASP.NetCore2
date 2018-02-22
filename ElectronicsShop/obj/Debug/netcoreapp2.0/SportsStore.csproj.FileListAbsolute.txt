@@ -1,0 +1,33 @@
+C:\ASP.Net Core\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.deps.json
+C:\ASP.Net Core\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.json
+C:\ASP.Net Core\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.dev.json
+C:\ASP.Net Core\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.Net Core\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.pdb
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csprojResolveAssemblyReference.cache
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csproj.CoreCompileInputs.cache
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfoInputs.cache
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfo.cs
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.Net Core\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.pdb
+C:\ASP.NetCore\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.deps.json
+C:\ASP.NetCore\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.json
+C:\ASP.NetCore\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.dev.json
+C:\ASP.NetCore\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.NetCore\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.pdb
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csprojResolveAssemblyReference.cache
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csproj.CoreCompileInputs.cache
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfoInputs.cache
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfo.cs
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.NetCore\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.pdb
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.deps.json
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.json
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.runtimeconfig.dev.json
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\bin\Debug\netcoreapp2.0\SportsStore.pdb
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csprojResolveAssemblyReference.cache
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.csproj.CoreCompileInputs.cache
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfoInputs.cache
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.AssemblyInfo.cs
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.dll
+C:\ASP.NetCore\Diploma\SportsStore\SportsStore\obj\Debug\netcoreapp2.0\SportsStore.pdb

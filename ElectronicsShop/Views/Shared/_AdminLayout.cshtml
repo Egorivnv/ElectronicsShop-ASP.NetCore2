@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="/lib/bootstrap/dist/**/*.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/canvasjs/jquery.canvasjs.min.js"></script>
+    
+</head>
+<body>
+    @await Component.InvokeAsync("AdminPanel")
+    <div class="card bg-light p-2 row w-100" style="position: relative; left:15px">
+        <div class="card-body pb-0 pt-2">
+            <ul class="list-inline p-0 m-0 text-center">
+                <li class="list-inline-item pull-left ml-3">
+                    <a class="btn btn-sm btn-info" asp-action="Index" asp-controller="Admin">Back to menu</a>
+                </li>
+                <li class="list-inline-item ml-2 "><h3>@ViewBag.Title</h3></li>
+                <li class="list-inline-item pull-right mr-3">
+                    <a class="btn btn-sm btn-primary" asp-action="Logout" asp-controller="Account">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#inputCategory").change(function () {
+                $.ajax({
+                    url: "/Admin/GetBrands",
+                    contentType: "application/json",
+                    method: "POST",
+                    data: JSON.stringify({ Category: $("#inputCategory option:selected").text() }),
+                    success: function (data) {
+                        addSelectBrands(data);
+                    }
+                });
+            });
+            $("form").on("change", "#inputBrand", function () {
+                $.ajax({
+                    url: "/AdminAnalytics/GetProducts",
+                    contentType: "application/json",
+                    method: "POST",
+                    data: JSON.stringify({ Category: $("#inputCategory option:selected").text(), BrandId: $("#inputBrand").val() }),
+                    success: function (data) {
+                        addSelectProducts(data);
+                    }
+                });
+            });
+        });
+
+        function addSelectBrands(brands) {
+            function getOption(value) {
+                var res = [];
+                $.each(value, function (index, brand) { res.push("<option value='" + brand.brandId + "'>" + brand.category + "</option>"); });
+                return res;
+            }
+            $("#inputBrand").replaceWith("<select id='inputBrand' name='Brand' class='form-control ml-3'>" + "<option selected value='0'>All</option>" + getOption(brands) + "</select>");
+        }
+
+
+        function addSelectProducts(products) {
+            function getOption(value) {
+                var res = [];
+                $.each(value, function (index, product) { res.push("<option value='" + product.productId + "'>" + product.productName + "</option>"); });
+                return res;
+            }
+            $("#inputProduct").replaceWith("<select id='inputProduct' name='Product' class='form-control ml-3'>" + "<option selected value='0'>All</option>" + getOption(products) + "</select>");
+        }
+
+    </script>
+    <script>
+        @RenderSection("addscripts", false)
+    </script>
+
+</body>
+</html>

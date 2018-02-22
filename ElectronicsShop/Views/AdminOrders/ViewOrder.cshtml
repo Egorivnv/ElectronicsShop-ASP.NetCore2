@@ -1,0 +1,128 @@
+﻿@model Order
+@{
+    ViewBag.Title = "Order № " + Model.OrderID;
+    Layout = "_AdminLayout";
+}
+
+<div class="container w-50">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <form asp-action="ViewOrder" asp-controller="AdminOrders" method="get">
+        <input asp-for="OrderID" class="form-control" type="hidden" />
+        <h3 class="text-center mt-4">Ship to</h3>
+        <div class="form-group">
+            <label>Customer's name:</label>
+            <input asp-for="Name" class="form-control" disabled />
+        </div>
+        <h3 class="text-center mt-4">Contact information</h3>
+        <div class="form-group">
+            <label>Address:</label><input asp-for="Address" value="@Model.Address" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label>Phone:</label><input asp-for="Phone" class="form-control" disabled />
+        </div>
+        <div class="form-group">
+            <label>Email:</label><input asp-for="Email" class="form-control" disabled />
+        </div>
+        <h3 class="text-center mt-4">Order list</h3>
+        <div class="form-group">
+            <table class="table table-bordered table-striped my-3" >
+                <thead>
+                    <tr>
+                        <th class="text-center">Product Id</th>
+                        <th class="text-center">Product name</th>
+                        <th class="text-center">Quantity, pcs.</th>
+                        <th class="text-center">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in Model.Lines)
+            {
+                    <tr>
+                        <td class="text-center">@line.Product.ProductID</td>
+                        <td>@line.Product.Name</td>
+                        <td class="text-center">@line.Quantity</td>
+                        <td class="text-right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                    </tr>
+    }
+                </tbody>
+            </table>
+        </div>
+            <h3 class="text-center mt-4">Order information</h3>
+            <div class="form-group">
+                <label>Order date:</label><input asp-for="Date" class="form-control" disabled />
+            </div>
+
+
+    </form>
+    @if (Model.Shipped != null)
+    {
+        <form asp-action="EditOrder" asp-controller="AdminOrders" method="get" >
+            <div class="form-group">
+                <label>Status:</label>
+                <select disabled name="status" class="form-control">
+                    @if (Model.Shipped == null)
+                    {
+                        <option selected value="0">In processing</option>
+                        <option value="1">Shipped</option>
+                        <option value="2">Canceled</option>
+                    }
+                    @if (Model.Shipped == true)
+                    {
+                        <option value="0">In processing</option>
+                        <option selected value="1">Shipped</option>
+                        <option value="2">Canceled</option>
+                    }
+                    @if (Model.Shipped == false)
+                    {
+                        <option value="0">In processing</option>
+                        <option value="1">Shipped</option>
+                        <option selected value="2">Canceled</option>
+                    }
+                </select>
+            </div>
+
+        </form>
+    }
+    else
+    {
+        <form asp-action="EditOrder" asp-controller="AdminOrders" method="get"  >
+            <div class="form-group">
+                <label>Status:</label>
+                <select name="status" class="form-control ">
+                    @if (Model.Shipped == null)
+                    {
+                        <option selected value="0">In processing</option>
+                        <option value="1">Shipped</option>
+                        <option value="2">Canceled</option>
+                    }
+                    @if (Model.Shipped == true)
+                    {
+                        <option value="0">In processing</option>
+                        <option selected value="1">Shipped</option>
+                        <option value="2">Canceled</option>
+                    }
+                    @if (Model.Shipped == false)
+                    {
+                        <option value="0">In processing</option>
+                        <option value="1">Shipped</option>
+                        <option selected value="2">Canceled</option>
+                    }
+                </select>
+            </div>
+
+            <input name="OrderID" value="@Model.OrderID" class="form-control" type="hidden" />
+            <input name="Name" value="@Model.Name" type="hidden" />
+            <input name="Phone" value="@Model.Phone" type="hidden" />
+            <input name="Email" value="@Model.Email" type="hidden" />
+            <input name="Address" value="@Model.Address" type="hidden" />
+
+            <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Change status" />
+            </div>
+        </form>
+    }
+
+</div>

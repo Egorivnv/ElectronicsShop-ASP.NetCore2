@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.Title = "Orders";
+    Layout = "_AdminLayout";
+}
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <form class="form-inline" method="get" asp-controller="AdminOrders" asp-action="ShowOrdersTable">
+
+            @await Component.InvokeAsync("AdminApplyOrders")
+
+            <div id="inputField" class="form-inline  ml-5">
+                <button id="buttonSelect" type="submit" class="btn btn-success">Apply</button>
+            </div>
+        </form>
+    </li>
+    <li class="list-group-item py-0">
+        <table class="table table-hover table-bordered table-striped ">
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Client's name</th>
+                <th class="text-center">Client's address</th>
+                <th class="text-center">Order date</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="text-center">@item.OrderID</td>
+                <td class="text-center">@item.Name</td>
+                <td class="text-center">@item.Address</td>
+                <td class="text-center">@item.Date</td>
+                <td class="text-center">
+
+                @if(@item.Shipped == null) { <span>In processing</span>}
+                else if (@item.Shipped == true) {<span>Shipped</span>}
+                else if (item.Shipped == false) { <span>Canceled</span> }
+
+                </td>
+                <td class="text-center">
+                        <a asp-action="ViewOrder" class="btn btn-sm btn-warning"
+                           asp-route-orderId="@item.OrderID">
+                            View
+                        </a>
+                </td>
+            </tr>
+            }
+        </table>
+    </li>
+</ul>

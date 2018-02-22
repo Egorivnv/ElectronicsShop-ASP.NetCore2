@@ -1,0 +1,42 @@
+﻿@model Product
+
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <form asp-action="Item" asp-controller="Product" method="get">
+            <input type="hidden" asp-for="ProductID" />
+            <button type="submit" class="btn btn-link text-dark">
+                @if (Model.Image != null)
+                {
+                    <img class="card-img-top" src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" alt="Card image cap" />
+                }
+                else
+                {
+                    <img class="card-img-top" src="~/images/logos/logo_elecshop.jpg" alt="Card image cap">
+                }
+            </button>
+        </form>
+        <div class="card-body">
+            <form asp-action="Item" asp-controller="Product" method="get">
+                <input type="hidden" asp-for="ProductID" />
+                <button type="submit" class="btn btn-link text-dark ml-0">
+                    <h5 class="card-title">@Model.Name</h5>
+                </button>
+            </form>
+            <form id="@Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+                <input type="hidden" asp-for="ProductID" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <div class="form-group">
+                    <div class="card-text">@Model.Description</div>
+                    <div class="badge badge-pill badge-danger pull-right my-2">
+                        @Model.Price.ToString("c")
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm form-control">
+                        Add To Cart
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+       

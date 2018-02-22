@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Sales Analytics";
+    Layout = "_AdminLayout";
+}
+
+
+<div id="chartContainer" style="height: 350px; width: 100%;"></div>
+
+<div class="text-center mt-5">
+    <h3>Total sales: @ViewBag.TotalSales.ToString("c")</h3>
+</div>
+
+@section addscripts {
+    window.onload = function () {
+
+    var options = {
+    exportEnabled: true,
+    animationEnabled: true,
+    title: {
+    text: "@ViewBag.GrafTitle"
+    },
+    axisX: {
+    title: "Date period",
+    },
+    axisY: {
+    title: "Sales (in USD)",
+    prefix: "$",
+    includeZero: false
+    },
+    data: [{
+    yValueFormatString: "$,##",
+    type: "spline",
+    @*dataPoints: [
+        { y: 25060, label: "sdf" },
+        { y: 27980, label: "sdf" },
+        { y: 33800, label: "sdf" },
+        { y: 49400, label: "sdf" },
+        { y: 40260, label: "sdf" },
+        { y: 33900, label: "sdf" },
+        { y: 48000, label: "sdf" },
+        { y: 31500, label: "sdf" },
+        { y: 32300, label: "sdf" },
+        { y: 42000, label: "sdf" },
+        { y: 52160, label: "sdf" },
+        { y: 49400, label: "sdf" }
+        ]*@
+
+    dataPoints: @Html.Raw(ViewBag.DataRow)
+
+    }]
+    };
+    $("#chartContainer").CanvasJSChart(options);
+
+    }
+}
+
+
+

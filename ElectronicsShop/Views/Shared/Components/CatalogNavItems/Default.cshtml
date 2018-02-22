@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Category>
+
+<ul class="navbar-nav mr-auto">
+    @foreach (var category in @Model)
+    {
+        <li class="nav-item dropdown ">
+            <a class="nav-link text-dark btn-lg ml-5 mr-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @category.Name
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach (var brand in category.Brands)
+                {
+                <a class="dropdown-item " href="#">@brand.Name</a>
+                }
+            </div>
+        </li>
+    }
+</ul>

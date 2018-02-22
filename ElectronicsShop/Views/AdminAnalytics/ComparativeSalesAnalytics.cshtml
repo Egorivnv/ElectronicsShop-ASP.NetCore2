@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Analytics";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-md-2 px-0">
+        <div class="list-group">
+            <a asp-action="Index" asp-controller="Admin" class="list-group-item list-group-item-action ">
+                Product catalog
+            </a>
+            <a asp-action="Index" asp-controller="AdminOrders" class="list-group-item list-group-item-action">Orders</a>
+            <a asp-action="Index" asp-controller="AdminStock" class="list-group-item list-group-item-action">Products stock</a>
+            <button type="button" class="list-group-item list-group-item-action active">Sales analytics</button>
+            <a asp-action="Index" asp-controller="AdminForecasting" class="list-group-item list-group-item-action">Sales forecasting</a>
+            <button type="button" class="list-group-item list-group-item-action" disabled>Planning goods supplyings</button>
+        </div>
+    </div>
+    <div class="col-md-10 p-0">
+        <div class="card">
+            <div class="card-header text-left">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item w-50 text-center">
+                        <a asp-action="Index" class="nav-link btn-lg text-uppercase font-weight-bold text-dark">Sales analytics</a>
+                    </li>
+                    <li class="nav-item w-50 text-center">
+                        <a class="nav-link btn-lg text-uppercase font-weight-bold active">Comparative sales analytics</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-body">
+                <div class="container-fluid mx-3">
+                    <form class="form-inline" method="post" asp-controller="AdminAnalytics" asp-action="ShowCompareAnalysis">
+                        <ul class="list-group list-group-flush w-100 pr-5">
+                            <li class="list-group-item">
+                                <h3 class="card-title text-center">Comparative sales analytics</h3>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row my-4">
+                                    @await Component.InvokeAsync("AdminApplyCatalog")
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row mb-4">
+                                    <div class="form-inline mt-4">
+                                        <h5 class="mx-3"><label for="dateFrom">Date from:</label></h5>
+                                        <input required id="dateFrom" type='date' class="form-control" name="DateFrom" />
+
+                                        <h5 class="mx-3" style="position:relative; left:55px"><label for="dateTo">Date to:</label></h5>
+                                        <input required style="position:relative; left:55px" id="dateTo" type='date' class="form-control" name="DateTo" />
+
+                                    </div>
+                                    <hr />
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row mb-4">
+                                    <div class="form-inline mt-4">
+                                        <h5 class="mx-3"><label for="dateFrom">Chart view:</label></h5>
+                                        <select required id="dateFrom" type='date' class="form-control" name="CartView">
+                                            <option selected value="0">Column Chart</option>
+                                            <option value="1">Bar Chart</option>
+                                            <option value="2">Pie Chart</option>
+                                            <option value="3">Pyramid Chart</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="inputField" class="form-inline pb-2 pt-4">
+                            <button id="buttonSelect" style="position: relative; left: 395px" type="submit" class="btn btn-dark ">Form a report</button>
+                        </div>
+                        @*<a asp-action="ShowAnalysis" asp-controller="AdminAnalytics">Form a report</a>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

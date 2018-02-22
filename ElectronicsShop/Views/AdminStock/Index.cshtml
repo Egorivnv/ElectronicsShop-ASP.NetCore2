@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Product stock";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-md-2 px-0">
+        <div class="list-group">
+            <a asp-action="Index" asp-controller="Admin" class="list-group-item list-group-item-action  ">
+                Product catalog
+            </a>
+            <a asp-action="Index" asp-controller="AdminOrders" class="list-group-item list-group-item-action ">Orders</a>
+            <button type="button" class="list-group-item list-group-item-action active">Products stock</button>
+            <a asp-action="Index" asp-controller="AdminAnalytics" class="list-group-item list-group-item-action">Sales analytics</a>
+            <a asp-action="Index" asp-controller="AdminForecasting" class="list-group-item list-group-item-action">Sales forecasting</a>
+            <button type="button" class="list-group-item list-group-item-action" disabled>Planning goods supplyings</button>
+        </div>
+    </div>
+    <div class="col-md-10 ">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <form style="position:relative; left:35px" class="form-inline" method="get" asp-controller="AdminStock" asp-action="ShowStockTable">
+
+                    @await Component.InvokeAsync("AdminApplyCatalog")
+
+                    <div id="inputField" class="form-inline  ml-5">
+                        <button style="position:relative; left:8px" id="buttonSelect" type="submit" class="btn btn-success">Apply</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+        <h2 style="position:relative; right:75px" class="m-3 text-center mt-5">@(TempData["message"] == null ? "Choose product category" : TempData["message"])</h2>
+
+    </div>
+</div>

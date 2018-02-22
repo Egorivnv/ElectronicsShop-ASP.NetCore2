@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="/lib/bootstrap/dist/**/*.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <link rel="stylesheet" asp-href-include="/lib/fontawesome/css/*.css" />
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
+
+    <title> @(ViewData["Title"] == null ? "Electrorics Shop" : ViewData["Title"])</title>
+</head>
+<body>
+    @await Component.InvokeAsync("AdminPanel")
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-md navbar-dark bg-primary small w-50 py-0">
+
+                <button class="navbar-toggler border-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContentTop" aria-controls="navbarSupportedContentTop" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContentTop">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Address</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Career</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="w-50 bg-primary pr-3">
+                @await Component.InvokeAsync("SignInButton")
+            </div>
+        </div>
+        <div class="row mt-0 bg-light">
+            <div class="col-md-2 ">
+                <a class="navbar-brand" href="/">
+                    <img src="~/images/logos/logo_elecshop.jpg" width="115" height="71" alt="" />
+                </a>
+            </div>
+            <div class="col-md-5  pt-md-4">
+                <form class="form-inline">
+                    <input class="form-control form-control-sm ml-md-5 w-75" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success ml-3 btn-sm" type="submit">Search</button>
+                </form>
+            </div>
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+    </div>
+    <div class="row bg-light  w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light py-0">
+            <button style="position:relative; bottom: 40px; height: 35px" class="navbar-toggler ml-3 text-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="mx-5 ">Catalog</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @await Component.InvokeAsync("CatalogNavItems")
+            </div>
+        </nav>
+    </div>
+    <div class="row mt-3 m-1 p-1">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        jQuery('ul.navbar-nav > li.nav-item').hover(function () {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn();
+        }, function () {
+            jQuery(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut();
+        });
+
+    </script>
+</body>
+</html>
