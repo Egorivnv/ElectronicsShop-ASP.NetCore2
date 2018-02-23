@@ -2,5 +2,6 @@
 
 Admin account:
 
-login: Admin
-password: Secret123$
+- login: Admin
+
+- password: Secret123$
