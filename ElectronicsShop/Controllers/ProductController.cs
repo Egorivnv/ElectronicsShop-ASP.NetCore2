@@ -34,6 +34,10 @@ namespace ElectronicsShop.Controllers
             CurrentCategory = category
             });
 
+        [HttpGet]
+        public ViewResult Index() => View();
+
+        [HttpGet]
         public ViewResult Item(int ProductID)
         {
             Product product = repository.Products

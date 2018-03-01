@@ -13,5 +13,8 @@ namespace ElectronicsShop.Models
         IEnumerable<SalesAnalyticsDataViewModel> GetSalesCompareCategorysData(DateTime dateFrom, DateTime dateTo);
         IEnumerable<SalesAnalyticsDataViewModel> GetSalesCompareBrandsData(DateTime dateFrom, DateTime dateTo, string category);
         IEnumerable<SalesAnalyticsDataViewModel> GetSalesCompareProductsData(DateTime dateFrom, DateTime dateTo, string category, int brandId);
+
+        IEnumerable<SalesAnalyticsDataViewModel> GetForecastData(IEnumerable<DateTime> dateListBase, IEnumerable<DateTime> dateListForecast, IQueryable<Product> productList );
+        int GetForecastSupplyDays(int period, Product product, int ratio);
     }
 }

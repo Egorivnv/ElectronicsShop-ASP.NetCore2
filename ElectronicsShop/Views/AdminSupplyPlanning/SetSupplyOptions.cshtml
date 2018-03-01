@@ -1,0 +1,77 @@
+﻿@model SupplyProductParameter
+
+@{
+    ViewBag.Title = "Setting supply options";
+    Layout = "_AdminLayout";
+}
+
+<div class="container w-75">
+    <form asp-action="SetSupplyOptions" method="post" class="m-3 py-2">
+        <div class="form-group">
+            <div class="container-fluid m-0 py-3">
+                <div class="row">
+                    <div class="form-inline col-md-4 px-0">
+                        <div class="card w-100 h-100">
+                            <div class="card-body form-inline ml-2">
+                                <h5><label for="productId" class="mr-3">Product Id</label></h5>
+                                <input id="productId" value="@Model.Product.ProductID" disabled class="form-control w-75" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 px-0">
+                        <div class="card w-100 h-100">
+                            <div class="card-body  form-inline">
+                                <h5><label for="productName" class="ml-5">Product Name</label></h5>
+                                <input id="productName" disabled value="@Model.Product.Name" class="form-control ml-5 w-75" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="container-fluid m-0 py-3">
+                <div class="row">
+                    <div class=" col-md-4 pl-1">
+                        <div class="card w-100 h-100">
+                            <div class="card-body form-inline ml-2">
+                                <h5><label asp-for="SupplyFrequency" class="text-center"></label></h5>
+                                <div><span asp-validation-for="SupplyFrequency" class="text-danger"></span></div>
+                                <input min="1" asp-for="SupplyFrequency" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 pl-1">
+                        <div class="card w-100 h-100">
+                            <div class="card-body  form-inline">
+                                <h5><label asp-for="TimeToFormSupply"></label></h5>
+                                <div><span asp-validation-for="TimeToFormSupply" class="text-danger"></span></div>
+                                <input min="1" asp-for="TimeToFormSupply" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 pl-1">
+                        <div class="card w-100 h-100">
+                            <div class="card-body  form-inline">
+                                <h5><label asp-for="SafetyRatio"></label></h5>
+                                <div><span asp-validation-for="SafetyRatio" class="text-danger"></span></div>
+                                <input asp-for="SafetyRatio" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="ProductId" value="@Model.Product.ProductID" />
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class=" px-3 py-3">
+            <a asp-action="Index" class="btn btn-secondary float-md-left">Cancel</a>
+            <button class="btn btn-primary px-4 float-md-right" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+

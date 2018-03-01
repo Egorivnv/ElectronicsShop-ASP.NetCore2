@@ -17,5 +17,6 @@ namespace ElectronicsShop.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductStock> ProductStocks { get; set; }
+        public DbSet<SupplyProductParameter> SupplyProductParameters { get; set; }
     }
 }

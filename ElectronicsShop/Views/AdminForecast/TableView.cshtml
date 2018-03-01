@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SalesAnalyticsDataViewModel>
+@{
+    ViewBag.Title = "Table View";
+    Layout = "_AdminLayout";
+}
+
+<div class="container">
+    <h3 class="text-center mt-4">
+        @ViewBag.GrafTitle
+    </h3>
+        <table class="table table-hover table-bordered table-striped mt-4">
+            <thead>
+                <tr>
+                    <th class="text-center">Date period</th>
+                    <th class="text-center">Forecasted amount of sales</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item.label</td>
+                        <td class="text-center">@item.y.ToString("c")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    <div class="text-center mt-4">
+        <h3>Total sales: @ViewBag.TotalSales.ToString("c")</h3>
+    </div>
+</div>

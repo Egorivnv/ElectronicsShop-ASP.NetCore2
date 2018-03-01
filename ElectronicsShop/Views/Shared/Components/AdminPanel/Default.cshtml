@@ -1,13 +1,13 @@
 ﻿<div class="text-center">
     <ul class="nav nav-dark bg-dark p-0 ">
         <li class="nav-item"  style="position:relative; left:571px">
-            <a class="nav-link text-white" asp-action="List" asp-controller="Product">Home</a>
+            <a class="  @(ViewBag.Current == 0 ? "btn btn-danger btn-sm mt-1": "nav-link text-white")" asp-action="List" asp-controller="Product">Home</a>
         </li>
-        <li class="nav-item pt-1"  style="position:relative; left:581px">
-            <span class="text-light"> | </span>
-        </li>
-        <li class="nav-item"  style="position:relative; left:591px">
-            <a class="nav-link text-white" asp-action="Index" asp-controller="Admin">Configure</a>
+
+        <li class="nav-item"  style="position:relative; left:581px">
+            <a class="@(ViewBag.Current == 1 ? "btn btn-danger btn-sm mt-1" :"nav-link text-white")" asp-action="Index" asp-controller="Admin">
+                Admin 
+            </a>
         </li>
     </ul>
 </div>

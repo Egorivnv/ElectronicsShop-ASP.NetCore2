@@ -28,22 +28,8 @@
     includeZero: false
     },
     data: [{
-    yValueFormatString: "$,##",
+    yValueFormatString: "$#.##",
     type: "spline",
-    @*dataPoints: [
-        { y: 25060, label: "sdf" },
-        { y: 27980, label: "sdf" },
-        { y: 33800, label: "sdf" },
-        { y: 49400, label: "sdf" },
-        { y: 40260, label: "sdf" },
-        { y: 33900, label: "sdf" },
-        { y: 48000, label: "sdf" },
-        { y: 31500, label: "sdf" },
-        { y: 32300, label: "sdf" },
-        { y: 42000, label: "sdf" },
-        { y: 52160, label: "sdf" },
-        { y: 49400, label: "sdf" }
-        ]*@
 
     dataPoints: @Html.Raw(ViewBag.DataRow)
 

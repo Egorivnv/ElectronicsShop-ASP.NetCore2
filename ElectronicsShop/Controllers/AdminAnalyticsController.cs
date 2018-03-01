@@ -48,7 +48,7 @@ namespace ElectronicsShop.Controllers
             List<DateTime> dates = new List<DateTime>();
             DateTime temp = data.DateFrom;
             int interval = data.Interval;
-            while (temp <= data.DateTo)
+            while (temp <= data.DateTo.AddDays(interval))
             {
                 dates.Add(temp);
                 temp = temp.AddDays(interval);
@@ -92,10 +92,28 @@ namespace ElectronicsShop.Controllers
                         ViewBag.DataRow = JsonConvert.SerializeObject(analyticsData, _jsonSetting);
                         return View("StepLineChart");
                     }
+                case 2:
+                    {
+                        ViewBag.DataRow = JsonConvert.SerializeObject(analyticsData, _jsonSetting);
+                        return View("AreaChart");
+                    }
+
+                case 3:
+                    {
+                        ViewBag.DataRow = JsonConvert.SerializeObject(analyticsData, _jsonSetting);
+                        return View("SplineAreaChart");
+                    }
+
+                case 4:
+                    {
+                        ViewBag.DataRow = JsonConvert.SerializeObject(analyticsData, _jsonSetting);
+                        return View("StepAreaChart");
+                    }
 
                 default:
                     {
-                        return View("Line Chart");
+                        ViewBag.DataRow = JsonConvert.SerializeObject(analyticsData, _jsonSetting);
+                        return View("SplineChart");
                     }
             }
             

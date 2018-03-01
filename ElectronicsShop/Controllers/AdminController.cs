@@ -23,8 +23,10 @@ namespace ElectronicsShop.Controllers
         [HttpGet]
         public ViewResult ShowProductTable(string category, int brand)
         {
-            if (categoryRepository.Categories.Where(c => c.Name == category).FirstOrDefault() == null) return View(repository.Products);
-            IQueryable<Product> productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand).AsQueryable();
+            IQueryable<Product> productList = null;
+            if (category == "all") productList =  repository.Products;
+            if (category != "all" && brand == 1) productList = repository.Products.Where(p => p.Category == category);
+            if (category != "all" && brand != 1) productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
             return View(productList);
         }
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));

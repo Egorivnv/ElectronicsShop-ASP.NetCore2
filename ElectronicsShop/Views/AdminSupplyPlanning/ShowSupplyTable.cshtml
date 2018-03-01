@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SupplyPlanningViewModel>
+@{
+    ViewBag.Title = "Supply Planning";
+    Layout = "_AdminLayout";
+}
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <form method="get" asp-controller="AdminSupplyPlanning" asp-action="ShowSupplyTable">
+            <div class="container-fluid">
+                <div class="row">
+                    @await Component.InvokeAsync("AdminApplyCatalog")
+                </div>
+                <div class="row mt-3">
+                    @await Component.InvokeAsync("AdminApplySupply")
+                    <div id="inputField" class="form-inline  ml-5">
+                        <button style="position:relative; left:124px" id="buttonSelect" type="submit" class="btn btn-success">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </li>
+    <li class="list-group-item pt-4">
+        <table class="table table-hover table-bordered table-sm">
+            <tr>
+                <th class="text-center">Product ID</th>
+                <th class="text-center">Product Name</th>
+                <th class="text-center">In stock, pcs.</th>
+                <th class="text-center">Stock level for supply, pcs.</th>
+                <th class="text-center">Norm of supplying, pcs.</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+            
+            <tr class="@(item.StockLevelForSupply.ToString() == "" ?
+              "table-light" : item.InStock > item.StockLevelForSupply ?
+              "table-light" : item.InStock >= (item.StockLevelForSupply - item.TimeToFormSupply) ?
+              "table-warning" : "table-danger") " >
+            <td class="text-center">@item.ProductId</td>
+            <td class="text-center">@item.ProductName</td>
+            <td class="text-center">@item.InStock</td>
+            <td class="text-center">@(item.StockLevelForSupply.ToString() == "" ? "No options" : item.StockLevelForSupply.ToString())</td>
+            <td class="text-center">@(item.NormOfSupplying.ToString() == "" ? "No options" : item.NormOfSupplying.ToString()) </td>
+            <td class="text-center">
+                @(item.StockLevelForSupply.ToString() == "" ? "No options" : item.InStock > item.StockLevelForSupply ?
+                    "Stock is sufficient" : item.InStock >= (item.StockLevelForSupply - item.TimeToFormSupply) ?
+                    "Supplying is required" : "Critical stock level")
+            </td>
+            <td class="text-center">
+                <form asp-action="SetSupplyOptions" method="get">
+                    <div class="form-inline text-center">
+                        <input type="hidden" value="@item.ProductId" name="ProductId" />
+                        <button type="submit" class="btn btn-secondary btn-sm ml-3">Options</button>
+                    </div>
+                </form>
+            </td>
+        </tr>
+}
+        </table>
+    </li>
+</ul>

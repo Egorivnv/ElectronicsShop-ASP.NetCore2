@@ -34,9 +34,10 @@ namespace ElectronicsShop
             services.AddTransient<ICatalogRepository, EFCatalogRepository>();
             services.AddTransient<IProductStockRepository, EFProductStockRepository>();
             services.AddTransient<IAnalyticsCalculate, AnalyticsCalculate>();
+            services.AddTransient<ISupplyProduct, EFSupplyingsRepository>();
 
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); //?????????????
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
 
             services.AddMvc();
             services.AddMemoryCache();
@@ -90,6 +91,7 @@ namespace ElectronicsShop
                 defaults: new
                 {
                     controller = "Product",
+                    //action = "Index",
                     action = "List",
                     productPage = 1
                 });

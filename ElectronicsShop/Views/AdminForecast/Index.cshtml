@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Sales Forecasting";
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-md-2 px-0">
+        <div class="list-group">
+            <a asp-action="Index" asp-controller="Admin" class="list-group-item list-group-item-action ">
+                Product catalog
+            </a>
+            <a asp-action="Index" asp-controller="AdminOrders" class="list-group-item list-group-item-action">Orders</a>
+            <a asp-action="Index" asp-controller="AdminStock" class="list-group-item list-group-item-action">Products stock</a>
+            <a asp-action="Index" asp-controller="AdminAnalytics" class="list-group-item list-group-item-action">Sales analytics</a>
+            <button type="button" class="list-group-item list-group-item-action active">Sales forecasting</button>
+            <a asp-action="Index" asp-controller="AdminSupplyPlanning" class="list-group-item list-group-item-action" disabled>Planning goods supplyings</a>
+        </div>
+    </div>
+    <div class="col-md-10 p-0">
+        <div class="card ">
+            <div class="card-body ">
+                <div class="container-fluid mx-3">
+                    <form class="form-inline" method="post" asp-controller="AdminForecast" asp-action="ShowForecast">
+                        <ul class="list-group list-group-flush w-100">
+
+                            <li class="list-group-item">
+                                <div class="row my-4">
+                                    @await Component.InvokeAsync("AdminApplyAnalylics")
+                                </div>
+                            </li>
+                            <li class="list-group-item pt-4">
+                                <h3 class="card-title text-center">Base period for forecasting</h3>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row mb-4">
+                                    <div class="form-inline mt-4">
+
+                                        <h5 style="position: relative; left: 155px" class="mx-3"><label for="basePeriod">Date period:</label></h5>
+                                        <select style="position: relative; left: 155px" class="form-control mr-5" name="BasePeriod" id="basePeriod" required>
+                                            <option selected value="0">Days</option>
+                                            <option value="1">Weeks</option>
+                                            <option value="2">Months</option>
+                                            <option value="3">Years</option>
+                                        </select>
+                                        
+                                        <h5 class="mx-3" style="position: relative; left: 215px"><label for="baseInterval">Date interval:</label></h5>
+                                        <input required style="position: relative; left: 215px" min="2" id="baseInterval" type='number' class="form-control" name="BaseInterval" />
+
+                                    </div>
+                                    <hr />
+                                </div>
+                            </li>
+                            <li class="list-group-item pt-4">
+                                <h3 class="card-title text-center">Forecasting interval</h3>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row mb-4">
+                                    <div class="form-inline mt-4">
+
+
+                                        <h5 class="mx-3 " style="position: relative; left: 215px"><label for="forecastInterval">Date interval:</label></h5>
+                                        <input required min="1" style="position: relative; left: 215px" id="forecastInterval" type='number' class="form-control " name="ForecastInterval" />
+
+                                    </div>
+                                    <hr />
+                                </div>
+                            </li>
+                            <li class="list-group-item ">
+                                <div class="row mb-4">
+                                    <div class="form-inline mt-4">
+                                        <h5 style="position: relative; left: 215px" class="mx-3"><label for="dateFrom">Forecast presentation:</label></h5>
+                                        <select style="position: relative; left: 215px" required id="dateFrom" type='date' class="form-control" name="ForecastPresentation">
+                                            <option selected value="0">Chart</option>
+                                            <option value="1">Area Chart</option>
+                                            <option value="2">Table</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ">
+                                <div id="inputField" class="form-inline pb-2 pt-4">
+                                    <button id="buttonSelect" type="submit" style="position: relative; left: 395px" class="btn btn-dark ">Form a report</button>
+                                </div>
+                            </li>
+                        </ul>
+
+                        @*<a asp-action="ShowAnalysis" asp-controller="AdminAnalytics">Form a report</a>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

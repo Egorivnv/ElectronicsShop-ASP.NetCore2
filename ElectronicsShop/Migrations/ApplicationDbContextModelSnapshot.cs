@@ -136,6 +136,26 @@ namespace ElectronicsShop.Migrations
                     b.ToTable("ProductStocks");
                 });
 
+            modelBuilder.Entity("ElectronicsShop.Models.SupplyProductParameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("ProductID");
+
+                    b.Property<int>("SafetyRatio");
+
+                    b.Property<int>("SupplyFrequency");
+
+                    b.Property<int>("TimeToFormSupply");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("SupplyProductParameters");
+                });
+
             modelBuilder.Entity("ElectronicsShop.Models.Brand", b =>
                 {
                     b.HasOne("ElectronicsShop.Models.Category")
@@ -149,6 +169,13 @@ namespace ElectronicsShop.Migrations
                         .WithMany("Lines")
                         .HasForeignKey("OrderID");
 
+                    b.HasOne("ElectronicsShop.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID");
+                });
+
+            modelBuilder.Entity("ElectronicsShop.Models.SupplyProductParameter", b =>
+                {
                     b.HasOne("ElectronicsShop.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID");

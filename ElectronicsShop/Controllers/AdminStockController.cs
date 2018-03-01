@@ -27,28 +27,21 @@ namespace ElectronicsShop.Controllers
         [HttpGet]
         public ViewResult ShowStockTable(string category, int brand)
         {
-            if (categoryRepository.Categories.Where(c => c.Name == category).FirstOrDefault() == null)
-            {
-                List<ProductWithStockViewModel> entireProductStockList = new List<ProductWithStockViewModel>();
-                foreach (var product in repository.Products)
+                IQueryable<Product> productList = null;
+                if (category == "all") productList = repository.Products;
+                if (category != "all" && brand == 1) productList = repository.Products.Where(p => p.Category == category);
+                if (category != "all" && brand != 1) productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
+
+                List<ProductWithStockViewModel> productStockList = new List<ProductWithStockViewModel>();
+                foreach (var product in productList)
                 {
                     var stock = stockRepository.Stocks.FirstOrDefault(s => s.ProductIdent == product.ProductID);
                     if (stock == null) stock = new ProductStock();
-                    entireProductStockList.Add(new ProductWithStockViewModel { ProductID = product.ProductID, Name = product.Name, ProductStockID = stock.ProductStockID, Booked = stock.Booked, InStock = stock.InStock });
+                    productStockList.Add(new ProductWithStockViewModel { ProductID = product.ProductID, Name = product.Name, ProductStockID = stock.ProductStockID, Booked = stock.Booked, InStock = stock.InStock });
                 }
-                return View(entireProductStockList);
-            }
-            IQueryable<Product> productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand).AsQueryable();
-            List<ProductWithStockViewModel> productStockList = new List<ProductWithStockViewModel>();
-            foreach(var product in productList)
-            {
-                var stock = stockRepository.Stocks.FirstOrDefault(s => s.ProductIdent == product.ProductID);
-                if (stock == null) stock = new ProductStock();
-                productStockList.Add(new ProductWithStockViewModel { ProductID=product.ProductID, Name = product.Name, ProductStockID = stock.ProductStockID, Booked = stock.Booked, InStock= stock.InStock });
-            }
-
-            return View(productStockList);
+                return View(productStockList);
         }
+
         [HttpGet]
         public RedirectToActionResult AddToStock (int quantityToStock, int productId)
         {

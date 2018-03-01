@@ -22,12 +22,12 @@
     
 </head>
 <body>
-    @await Component.InvokeAsync("AdminPanel")
+    @await Component.InvokeAsync("AdminPanel", 1)
     <div class="card bg-light p-2 row w-100" style="position: relative; left:15px">
         <div class="card-body pb-0 pt-2">
             <ul class="list-inline p-0 m-0 text-center">
                 <li class="list-inline-item pull-left ml-3">
-                    <a class="btn btn-sm btn-info" asp-action="Index" asp-controller="Admin">Back to menu</a>
+                    <a class="btn btn-sm btn-info" asp-action="Index" >Back to menu</a>
                 </li>
                 <li class="list-inline-item ml-2 "><h3>@ViewBag.Title</h3></li>
                 <li class="list-inline-item pull-right mr-3">
