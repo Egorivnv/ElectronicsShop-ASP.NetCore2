@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Catalog's empty";
+}
+
+@await Component.InvokeAsync("FilterCatalog")
+
+<div class="col-md-9">
+    @await Component.InvokeAsync("Breadcrumb")
+    <div class="row p-3">
+        <h2>Catalog in this category is empty</h2>
+        </div>
+</div>

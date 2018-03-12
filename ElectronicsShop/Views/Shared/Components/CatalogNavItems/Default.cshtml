@@ -4,13 +4,13 @@
     @foreach (var category in @Model)
     {
         <li class="nav-item dropdown ">
-            <a class="nav-link text-dark btn-lg ml-5 mr-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a asp-controller="Product" asp-action="List" asp-route-category="@category.Name" class="nav-link text-dark btn-lg ml-5 mr-4"  id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 @category.Name
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 @foreach (var brand in category.Brands)
                 {
-                <a class="dropdown-item " href="#">@brand.Name</a>
+                <a asp-controller="Product" asp-action="ShowBrandItems" asp-route-category="@category.Name" asp-route-brand="@brand.BrandID" class="dropdown-item">@brand.Name</a>
                 }
             </div>
         </li>

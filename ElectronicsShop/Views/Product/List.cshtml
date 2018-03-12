@@ -3,7 +3,7 @@
 @await Component.InvokeAsync("FilterCatalog")
 
 <div class="col-md-9">
-    @await Component.InvokeAsync("Breadcrumb")
+    @await Component.InvokeAsync("BreadcrumbCategory", Model.CurrentCategory)
     <div class="row">
         @foreach (var p in @Model.Products)
         {
@@ -11,10 +11,20 @@
         }
     </div>
     <div class="text-center">
+        @if (Model.CurrentBrand == null)
+    {
         <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
              page-class="btn" page-class-normal="btn-secondary"
              page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class=" btn-group">
         </div>
+         }
+        else
+        {
+        <div page-model="@Model.PagingInfo" page-action="ShowBrandItems" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-secondary"
+             page-class-selected="btn-primary" page-url-brand="@Model.CurrentBrand" page-url-category="@Model.CurrentCategory" class=" btn-group">
+        </div>
+        }
     </div>
 </div>
 

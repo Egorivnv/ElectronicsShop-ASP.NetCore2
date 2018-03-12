@@ -25,8 +25,8 @@ namespace ElectronicsShop.Controllers
         {
             IQueryable<Product> productList = null;
             if (category == "all") productList =  repository.Products;
-            if (category != "all" && brand == 1) productList = repository.Products.Where(p => p.Category == category);
-            if (category != "all" && brand != 1) productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
+            else if (category != "all" && brand == 0) productList = repository.Products.Where(p => p.Category == category);
+            else productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
             return View(productList);
         }
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));
@@ -39,12 +39,10 @@ namespace ElectronicsShop.Controllers
                 if (imageUpload != null)
                 {
                     byte[] imageData = null;
-                    // считываем переданный файл в массив байтов
                     using (var binaryReader = new BinaryReader(imageUpload.OpenReadStream()))
                     {
                         imageData = binaryReader.ReadBytes((int)imageUpload.Length);
                     }
-                    // установка массива байтов
                     product.Image = imageData;
                 }
                 repository.SaveProduct(product);
@@ -53,7 +51,7 @@ namespace ElectronicsShop.Controllers
             }
             else
             {
-                // there is something wrong with the data values
+                // if there is something wrong with the data values
                 return View(product);
             }
         }

@@ -1,7 +1,21 @@
-﻿<nav aria-label="breadcrumb">
+﻿@model BreadcrumbViewModel
+
+<nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data</li>
+        @if (Model.Category == null)
+    {
+        <li class="breadcrumb-item active" aria-current="page">Catalog</li>
+}
+        @if (Model.Category != null && Model.Brand == null)
+    {
+        <li class="breadcrumb-item"><a asp-controller="Product" asp-action="List">Catalog</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Category</li>
+}
+        @if (Model.Brand != null)
+    {
+        <li class="breadcrumb-item"><a asp-controller="Product" asp-action="List">Catalog</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Product" asp-action="List" asp-route-category="@Model.Category">@Model.Category</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Brand</li>
+}
     </ol>
 </nav>

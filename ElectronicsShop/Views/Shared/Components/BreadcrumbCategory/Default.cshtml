@@ -1,0 +1,15 @@
+﻿@model BreadcrumbViewModel
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @if (Model.Category == null)
+        {
+            <li class="breadcrumb-item" aria-current="page">Catalog</li>
+        }
+        else
+        {
+            <li class="breadcrumb-item"><a asp-controller="Product" asp-action="List">Catalog</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Category</li>
+        }
+    </ol>
+</nav>

@@ -119,15 +119,15 @@ namespace ElectronicsShop.Models
                     
                     temp = dateBase;
 
-                    if (totalIntervalSum != 0M) // !!! For using with test data
-                    {
+                    //if (totalIntervalSum != 0M) // !!! For using with test data
+                    //{
                         t++;
                         sumT += t;
                         sumTSquared += t * t;
                         SumY += totalIntervalSum;
                         SumYT += totalIntervalSum * t;
                         SumYSquared += totalIntervalSum * totalIntervalSum;
-                    }
+                    //}
                 }
             }
 
@@ -143,7 +143,9 @@ namespace ElectronicsShop.Models
             {
                 if (dateForecast != temp)
                 {
-                    resultList.Add(new SalesAnalyticsDataViewModel { label = temp.ToShortDateString() + "-" + dateForecast.ToShortDateString(), y = a0 * (decimal) tForecast + a1 });
+                    decimal y = a0 * (decimal)tForecast + a1;
+                    decimal yResult = y < 0 ? 0 : y;
+                    resultList.Add(new SalesAnalyticsDataViewModel { label = temp.ToShortDateString() + "-" + dateForecast.ToShortDateString(), y = yResult });
                     temp = dateForecast;
                     tForecast++;
                 }
