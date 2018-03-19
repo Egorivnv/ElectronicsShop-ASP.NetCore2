@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ElectronicsShop.Models;
 using ElectronicsShop.Models.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace ElectronicsShop.Controllers
 {
@@ -73,5 +74,18 @@ namespace ElectronicsShop.Controllers
             if (productsList.Products.Count() == 0) return View();
             return View("ShowBrandItemsList", productsList);
         }
+        
+        public ViewResult SearchProduct (string searchStr)
+        {
+            List<Product> productsList = new List<Product> ();
+            if (searchStr != null)
+            {
+                Regex regex = new Regex(searchStr.Trim(), RegexOptions.IgnoreCase);
+                productsList.AddRange(repository.Products.Where(p => regex.IsMatch(p.Name) == true).AsEnumerable());
+                return View(productsList);
+            }
+            return View(productsList);
+        }
+
     }
 }

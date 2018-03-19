@@ -2,6 +2,10 @@
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/ElectronicsShop",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:50098/",
       "sslPort": 0

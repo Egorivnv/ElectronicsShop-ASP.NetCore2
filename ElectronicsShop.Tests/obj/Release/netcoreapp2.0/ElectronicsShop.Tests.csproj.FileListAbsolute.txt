@@ -1,0 +1,16 @@
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.csprojResolveAssemblyReference.cache
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.csproj.CoreCompileInputs.cache
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.AssemblyInfoInputs.cache
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.AssemblyInfo.cs
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.Tests.deps.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.Tests.runtimeconfig.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.Tests.runtimeconfig.dev.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.Tests.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.Tests.pdb
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\bin\Release\netcoreapp2.0\ElectronicsShop.pdb
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop.Tests\obj\Release\netcoreapp2.0\ElectronicsShop.Tests.pdb

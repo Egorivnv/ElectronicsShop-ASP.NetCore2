@@ -15,9 +15,9 @@ namespace ElectronicsShop.Components
         {
             repository = repo;
         }
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string activeCategory)
         {
-
+            ViewBag.SelectedCategoryPassed = activeCategory;
             ViewBag.SelectedCategory = RouteData?.Values["category"];
             return View(repository.Categories);
         }

@@ -8,9 +8,14 @@ namespace ElectronicsShop.Components
 {
     public class FilterCatalogViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string category)
         {
-            return View();
+            switch (category)
+            {
+                case "Smartphones": return View("Smartphones");
+                case "Tablets": return View("Tablets");
+                default: return View("Smartphones");
+            }
         }
     }
 }

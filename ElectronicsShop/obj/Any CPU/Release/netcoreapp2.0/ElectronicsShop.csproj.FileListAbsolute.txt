@@ -1,0 +1,11 @@
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\bin\Any CPU\Release\netcoreapp2.0\ElectronicsShop.deps.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\bin\Any CPU\Release\netcoreapp2.0\ElectronicsShop.runtimeconfig.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\bin\Any CPU\Release\netcoreapp2.0\ElectronicsShop.runtimeconfig.dev.json
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\bin\Any CPU\Release\netcoreapp2.0\ElectronicsShop.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\bin\Any CPU\Release\netcoreapp2.0\ElectronicsShop.pdb
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.csproj.CoreCompileInputs.cache
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.AssemblyInfoInputs.cache
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.AssemblyInfo.cs
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.dll
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.pdb
+C:\ASP.NetCore\Diploma\ElectronicsShop\ElectronicsShop\obj\Any CPU\Release\netcoreapp2.0\ElectronicsShop.csprojResolveAssemblyReference.cache

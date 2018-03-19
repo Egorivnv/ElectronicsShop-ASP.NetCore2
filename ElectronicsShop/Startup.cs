@@ -99,8 +99,8 @@ namespace ElectronicsShop
                     routes.MapRoute(name: "default", template: "{controller}/{action}/{id?}");
                 });
 
-            SeedData.EnsurePopulated(app);
-            IdentitySeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
+            //IdentitySeedData.EnsurePopulated(app);
 
             if (env.IsDevelopment())
             {

@@ -10,7 +10,7 @@ using Xunit;
 
 namespace ElectronicsShop.Tests
 {
-    public class ProductControllerTests
+    /*public class ProductControllerTests
     {
         [Fact]
         public void Can_Paginate()
@@ -115,5 +115,5 @@ namespace ElectronicsShop.Tests
             Assert.Equal(1, res3);
             Assert.Equal(5, resAll);
         }
-    }
+    }*/
 }
