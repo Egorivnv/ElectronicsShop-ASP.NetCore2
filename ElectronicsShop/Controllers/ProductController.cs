@@ -87,5 +87,15 @@ namespace ElectronicsShop.Controllers
             return View(productsList);
         }
 
+        public ViewResult FilterSearch (string category, decimal priceFrom = 0M, decimal priceTo = 0M)
+        {
+            List<Product> productsList = new List<Product>();
+            if (priceFrom != 0M && priceTo != 0M)
+            {
+                productsList.AddRange(repository.Products.Where(p => p.Category == category).Where(p => p.Price >= priceFrom && p.Price <= priceTo ).AsEnumerable());
+                return View("SearchProduct", productsList);
+            }
+            return View("SearchProduct", productsList);
+        }
     }
 }

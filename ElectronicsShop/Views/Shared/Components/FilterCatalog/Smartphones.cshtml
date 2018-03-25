@@ -1,4 +1,6 @@
-﻿<div id="accordion" class="col-md-3">
+﻿
+
+<div id="accordion" class="col-lg-3 col-sm-4">
     <div class="card">
         <div class="card-header  text-center">
             <button class="btn btn-link font-weight-bold text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -9,7 +11,7 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item ">
-                        <form id="filterForm ">
+                        <form id="filterForm" asp-action="FilterSearch" asp-controller="Product" method="get">
                             <ul class="list-group ">
                                 <li class="list-group-item">
                                     <div class="row" style="position:relative; bottom: 15px">
@@ -18,15 +20,16 @@
                                     <div class="row" style="position:relative; bottom: 15px">
                                         <div class="col-sm-6 pull-left">
                                             <label>
-                                                from:<input class="w-100" type="text" name="priceFrom" />
+                                                from:<input class="w-100" type="text" name="PriceFrom" />
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>
-                                                to:<input class="w-100" type="text" name="priceTo" />
+                                                to:<input class="w-100" type="text" name="PriceTo" />
                                             </label>
                                         </div>
                                     </div>
+                                    <input type="hidden" value="Smartphones" name="Category" />
                                 </li>
                                 <li class="list-group-item">
                                     <div class="row ">

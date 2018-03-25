@@ -16,7 +16,7 @@
 
     @await Component.InvokeAsync("FilterCatalog", Model.CurrentCategory)
 
-    <div class="col-md-9">
+    <div class="col-lg-9 col-sm-8">
         @await Component.InvokeAsync("BreadcrumbCategory", Model.CurrentCategory)
         <div class="row">
             @foreach (var p in @Model.Products)

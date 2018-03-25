@@ -1,6 +1,6 @@
 ﻿@model Product
 
-<div class="col-md-4 mb-4">
+<div class="col-sm-6 col-lg-4 mb-4">
     <div class="card">
         <form asp-action="Item" asp-controller="Product" method="get">
             <input type="hidden" asp-for="ProductID" />
@@ -26,7 +26,12 @@
                 <input type="hidden" asp-for="ProductID" />
                 <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                 <div class="form-group">
-                    <div class="card-text"><span>@Model.Description</span></div>
+                    <div class="card-text"><span>@(Model.Description.Length>60 ? Model.Description.Substring(0,50)+"..." : Model.Description)</span>
+                    @if(Model.Description.Length <= 30)
+                    {
+                        <div>...</div>
+                    }
+                    </div>
                     <div class="badge badge-pill badge-danger pull-right my-2">
                         @Model.Price.ToString("c")
                     </div>

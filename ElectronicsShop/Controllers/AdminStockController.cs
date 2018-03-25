@@ -29,8 +29,8 @@ namespace ElectronicsShop.Controllers
         {
                 IQueryable<Product> productList = null;
                 if (category == "all") productList = repository.Products;
-                if (category != "all" && brand == 1) productList = repository.Products.Where(p => p.Category == category);
-                if (category != "all" && brand != 1) productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
+                if (category != "all" && brand == 0) productList = repository.Products.Where(p => p.Category == category);
+                if (category != "all" && brand != 0) productList = repository.Products.Where(p => p.Category == category).Where(p => p.Brand == brand);
 
                 List<ProductWithStockViewModel> productStockList = new List<ProductWithStockViewModel>();
                 foreach (var product in productList)

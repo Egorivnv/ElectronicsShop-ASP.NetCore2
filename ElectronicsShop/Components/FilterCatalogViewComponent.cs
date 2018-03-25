@@ -14,7 +14,11 @@ namespace ElectronicsShop.Components
             {
                 case "Smartphones": return View("Smartphones");
                 case "Tablets": return View("Tablets");
-                default: return View("Smartphones");
+                case "TV": return View("TV");
+                case "Audio technics": return View("AudioTechnics");
+                case "Photo and video cameras": return View("PhotoAndVideoCameras");
+                case "Smart watches": return View("Smartwatches");
+                default: return View("Home");
             }
         }
     }
