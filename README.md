@@ -2,7 +2,7 @@
 
 Hosted on AWS: electronicstore.us-west-2.elasticbeanstalk.com
 
-Analytics functions are realised in admin account:
+Analytics functions are presented in admin account:
 
 - login: Admin
 
