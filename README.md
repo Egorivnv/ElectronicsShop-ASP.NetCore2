@@ -1,8 +1,8 @@
 # ElectronicsShop-ASP.NetCore2
 
-Hosted in AWS: electronicstore.us-west-2.elasticbeanstalk.com
+Hosted in AWS: www.electronicstore.us-west-2.elasticbeanstalk.com
 
-Analytics functions are presented in admin account:
+Analytic features are available in admin account:
 
 - login: Admin
 
